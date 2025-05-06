@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { log } = require('console');
 
 // Filer ka path define karen
 const filePath = path.join(__dirname, 'user_data.csv');
@@ -39,7 +40,8 @@ const server = http.createServer((req, res) => {
     let body = '';
 
     req.on('data', chunk => {
-      body += chunk.toString(); // Data ko string me convert karna
+     console.log(chunk);
+      // body += chunk.toString(); // Data ko string me convert karna
     });
 
     req.on('end', () => {
